@@ -38,7 +38,6 @@ module ripple_carry_adder_4bit (
     end
     assign Sum = sum_temp;
 endmodule
-
 ```
 
 **Test bench for Ripple Carry Adder:** <br>
@@ -73,7 +72,6 @@ module ripple_carry_adder_4bit_tb;
         $monitor("Time = %0t | A = %b | B = %b | Cin = %b | Sum = %b | Cout = %b", $time, A, B, Cin, Sum, Cout);
     end
 endmodule
-
 ```
 
 **Verilog Code for Ripple Carry Counter:** <br>
@@ -97,7 +95,6 @@ module ripple_counter_4bit (
             Q <= next_state(Q); // Increment the counter
     end
 endmodule
-
 ```
 
 **TestBench for Ripple Carry Counter:** <br>
@@ -123,7 +120,6 @@ module ripple_counter_4bit_tb;
         $monitor("Time = %0t | Reset = %b | Q = %b", $time, reset, Q);
     end
 endmodule
-
 ```
 **Sample Output for Ripple Carry Adder:**
 ```
@@ -163,6 +159,8 @@ Time = 205000 | Reset = 0 | Q = 0011
 Time = 215000 | Reset = 0 | Q = 0100
 
 ```
+<br>
+<br>
 <br>
 
 **Output Waveform for Ripple Carry Adder:** 
