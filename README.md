@@ -1,15 +1,15 @@
 # 4-bit Ripple Carry Adder using Task and 4-bit Ripple Counter using Function with Testbench
 
 **Aim:** <br>
-
+<br>
 &emsp;&emsp;To design and simulate a 4-bit Ripple Carry Adder using Verilog HDL with a task to implement the full adder functionality and verify its output using a testbench.<br>
 &emsp;&emsp;To design and simulate a 4-bit Ripple Counter using Verilog HDL with a function to calculate the next state and verify its functionality using a testbench.<br>
-
+<br>
 **Apparatus Required:** <br>
-
+<br>
 &emsp;&emsp;Computer with Vivado or any Verilog simulation software.<br>
 &emsp;&emsp;Verilog HDL compiler.<br>
-
+<br>
 **Verilog Code for Ripple Carry Adder:** <br>
 ```
 
@@ -42,8 +42,8 @@ endmodule
 ```
 
 **Test bench for Ripple Carry Adder:** <br>
-
 ```
+
 module ripple_carry_adder_4bit_tb;
     reg [3:0] A, B;
     reg Cin;
@@ -165,17 +165,26 @@ Time = 215000 | Reset = 0 | Q = 0100
 ```
 <br>
 
-**Output Waveform for Ripple Carry Adder:**
+**Output Waveform for Ripple Carry Adder:** 
+
+<br>
 
 ![Screenshot 2024-11-14 141455](https://github.com/user-attachments/assets/6ab8bee1-b8b8-4b6a-a907-edfa55d3f224)
 
+<br>
+
 **Output Waveform for Ripple Carry Counter:**
+
+<br>
 
 ![Screenshot 2024-11-14 141906](https://github.com/user-attachments/assets/836583f0-0891-4116-9259-805356da711c)
 
+<br>
+
 **Conclusion:** <br>
 
-&emsp;&emsp;The 4-bit Ripple Carry Adder was successfully designed and implemented using Verilog HDL with the help of a task for the full adder logic. The testbench verified that the ripple carry adder correctly computes the 4-bit sum and carry-out for various input combinations.The simulation results matched the expected outputs.<br>
+<br>
 
+&emsp;&emsp;The 4-bit Ripple Carry Adder was successfully designed and implemented using Verilog HDL with the help of a task for the full adder logic. The testbench verified that the ripple carry adder correctly computes the 4-bit sum and carry-out for various input combinations.The simulation results matched the expected outputs.<br>
 &emsp;&emsp;The 4-bit Ripple Counter was successfully designed and implemented using Verilog HDL. A function was used to calculate the next state of the counter.<br>
 
