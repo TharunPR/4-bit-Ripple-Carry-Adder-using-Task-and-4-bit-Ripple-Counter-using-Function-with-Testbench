@@ -22,7 +22,6 @@ module ripple_carry_adder_4bit (
 );
     reg [3:0] sum_temp;
     reg cout_temp;
-    // Task for Full Adder
     task full_adder;
         input a, b, cin;
         output sum, cout;
@@ -31,7 +30,6 @@ module ripple_carry_adder_4bit (
             cout = (a & b) | (b & cin) | (cin & a);
         end
     endtask
-    // Ripple carry logic using task
     always @(*) begin
         full_adder(A[0], B[0], Cin, sum_temp[0], cout_temp);
         full_adder(A[1], B[1], cout_temp, sum_temp[1], cout_temp);
@@ -51,7 +49,6 @@ module ripple_carry_adder_4bit_tb;
     reg Cin;
     wire [3:0] Sum;
     wire Cout;
-    // Instantiate the ripple carry adder
     ripple_carry_adder_4bit uut (
         .A(A),
         .B(B),
@@ -60,7 +57,6 @@ module ripple_carry_adder_4bit_tb;
         .Cout(Cout)
     );
     initial begin
-        // Test cases
         A = 4'b0001; B = 4'b0010; Cin = 0;
         #10;
         A = 4'b0110; B = 4'b0101; Cin = 0;
@@ -88,14 +84,12 @@ module ripple_counter_4bit (
     input reset,         // Reset signal
     output reg [3:0] Q   // 4-bit output for the counter value
 );
-    // Function to calculate next state
     function [3:0] next_state;
         input [3:0] curr_state;
         begin
             next_state = curr_state + 1;
         end
     endfunction
-    // Sequential logic for counter
     always @(posedge clk or posedge reset) begin
         if (reset)
             Q <= 4'b0000;       // Reset the counter to 0
