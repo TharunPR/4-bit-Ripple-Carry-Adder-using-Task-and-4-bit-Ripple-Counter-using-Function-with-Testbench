@@ -10,6 +10,38 @@
 &emsp;&emsp;Computer with Vivado or any Verilog simulation software.<br>
 &emsp;&emsp;Verilog HDL compiler.<br>
 <br>
+
+**Procedure:** <br>
+<br>
+**Launch Vivado 2023.1:** <br> 
+<br>
+&emsp;&emsp;Open Vivado and create a new project, adding the necessary Verilog files.<br>
+<br>
+**Design Verilog Code:** <br> 
+<br>
+&emsp;&emsp;Implement the 4-bit Ripple Carry Adder using a task for the full adder logic.  <br>
+&emsp;&emsp;Write the 4-bit Ripple Counter using a function to compute the next state.<br>
+<br>
+**Create Testbenches:** <br>
+<br>
+&emsp;&emsp;Write separate testbenches to simulate and verify the functionality of the Ripple Carry Adder and Ripple Counter.<br>
+<br>
+**Run Behavioral Simulation:**  <br>
+<br>
+&emsp;&emsp;Simulate both modules and verify their outputs for different input conditions.<br>
+<br>
+**Observe Waveforms:**  <br>
+<br>
+&emsp;&emsp;Analyze the waveforms to confirm the expected behavior for both designs.<br>
+<br>
+**Save Results:**  <br>
+<br>
+&emsp;&emsp;Capture and save the simulation logs and waveforms for documentation.<br>
+<br>
+<br>
+<br>
+<br>
+
 **Verilog Code for Ripple Carry Adder:** <br>
 ```
 
@@ -57,16 +89,11 @@ module ripple_carry_adder_4bit_tb;
     );
     initial begin
         A = 4'b0001; B = 4'b0010; Cin = 0;
-        #10;
-        A = 4'b0110; B = 4'b0101; Cin = 0;
-        #10;
-        A = 4'b1111; B = 4'b0001; Cin = 0;
-        #10;
-        A = 4'b1010; B = 4'b1101; Cin = 1;
-        #10; 
-        A = 4'b1111; B = 4'b1111; Cin = 1;
-        #10;
-        $stop;
+        #10;A = 4'b0110; B = 4'b0101; Cin = 0;
+        #10;A = 4'b1111; B = 4'b0001; Cin = 0;
+        #10;A = 4'b1010; B = 4'b1101; Cin = 1;
+        #10;A = 4'b1111; B = 4'b1111; Cin = 1;
+        #10;$stop;
     end
     initial begin
         $monitor("Time = %0t | A = %b | B = %b | Cin = %b | Sum = %b | Cout = %b", $time, A, B, Cin, Sum, Cout);
@@ -77,12 +104,8 @@ endmodule
 **Verilog Code for Ripple Carry Counter:** <br>
 ```
 
-module ripple_counter_4bit (
-    input clk,           // Clock signal
-    input reset,         // Reset signal
-    output reg [3:0] Q   // 4-bit output for the counter value
-);
-    function [3:0] next_state;
+module ripple_counter_4bit (input clk,input reset, output reg [3:0] Q    );
+        function [3:0] next_state;
         input [3:0] curr_state;
         begin
             next_state = curr_state + 1;
@@ -104,11 +127,7 @@ module ripple_counter_4bit_tb;
     reg clk;
     reg reset;
     wire [3:0] Q;
-    ripple_counter_4bit uut (
-        .clk(clk),
-        .reset(reset),
-        .Q(Q)
-    );
+    ripple_counter_4bit uut ( .clk(clk),.reset(reset),.Q(Q)  );
     always #5 clk = ~clk;
     initial begin
         clk = 0;
@@ -159,10 +178,6 @@ Time = 205000 | Reset = 0 | Q = 0011
 Time = 215000 | Reset = 0 | Q = 0100
 
 ```
-<br>
-<br>
-<br>
-
 **Output Waveform for Ripple Carry Adder:** 
 
 <br>
